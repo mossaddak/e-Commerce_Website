@@ -1,0 +1,198 @@
+<!-- style -->
+<style>
+  .orders_information {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 4px;
+  }
+
+  .delivery_icon_badge {
+    font-size: 13px;
+  }
+
+  .order_list_anchor {
+    color: black !important;
+  }
+
+  .total_orders_button {
+    display: none;
+    background-color: #DC3545;
+    color: white;
+    transition: 0.9s;
+  }
+
+  .total_orders_button:hover {
+    color: #c0c0c0;
+  }
+  .close_btn_color:hover{
+    transform: rotate(360deg); 
+  }
+</style>
+
+<div class="modal fade" id="ShoppingMODAL" tabindex="-1" role="dialog" aria-labelledby="ShoppingMODAL"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ShoppingMODAL">Order list</h5>
+
+        <!-- close btn -->
+        <button type="button" class="btn close_btn_color rounded-circle" 
+          data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+      </div>
+      <div class="modal-body">
+
+
+
+
+        <div id="accordion">
+
+
+          <!--- frontend --->
+          <div class="">
+            <div class="" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn frontend_orders col-12"
+                  style="background-color:#dc3545; color:white; font-size: 12px;" data-toggle="collapse"
+                  data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                </button>
+              </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+              {% for frontend_order_list in frontend_order_list %}
+              <a href="{% url 'frontend_order_details' frontend_order_id=frontend_order_list.id %}" class="order_list_anchor">
+                <div class="mt-2 mb-2 ml-1 mr-1 pt-2 pr-2 pl-2 text-justify orders_information"
+                  style="font-size: 13px;font-family: 'Roboto', sans-serif;">
+
+                  <!-- heading -->
+                  <h5 style="font-size:17px;">{{ frontend_order_list.Website_Functionality }}</h5>
+                  <hr>
+
+                  <!-- date time -->
+                  <span>{{ frontend_order_list.created_date }}</span><br>
+
+                  <!-- price -->
+                  <span class="badge badge-success pr-2 pl-2">{{ frontend_order_list.Price }} $</span>
+                  <div></div>
+
+                  <!-- number of sections -->
+                  <label>Id: {{ frontend_order_list.pk }}</label>, <span>{{ frontend_order_list.Number_of_Section }}
+                    sections</span>
+                </div>
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+
+
+          <!--- backend --->
+          <div class="">
+            <div class="" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn backend_orders collapsed col-12 mt-2"
+                  style="background-color:#dc3545; color:white; font-size: 12px;" data-toggle="collapse"
+                  data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+              {% for backend_order_list in backend_order_list %}
+              <a href="{% url 'backend_order_details' backend_order_id=backend_order_list.id %}" class="order_list_anchor">
+                <div class="mt-2 mb-2 ml-1 mr-1 pt-2 pr-2 pl-2 text-justify orders_information"
+                  style="font-size: 13px;font-family: 'Roboto', sans-serif;">
+
+                  <!-- heading -->
+                  <h5 style="font-size:17px;">{{ backend_order_list.Website_Functionality }}</h5>
+                  <hr>
+
+                  <!-- date time -->
+                  <span>{{ backend_order_list.created_date }}</span><br>
+
+                  <!-- price -->
+                  <span class="badge badge-success pr-2 pl-2">{{ backend_order_list.Backend_Price }} $</span>
+
+                  <!-- number of sections -->
+                  <label>Id: {{ backend_order_list.pk }}</label>, <span>{{ backend_order_list.Number_Of_Section }}
+                    sections</span>
+                </div>
+
+              </a>
+
+              {% endfor %}
+            </div>
+          </div>
+
+
+          <!--- complete website --->
+          <div class="">
+            <div class="" id="headingThree">
+              <h5 class="mb-0">
+                <button class="btn collapsed complete_website_orders col-12 mt-2"
+                  style="background-color:#dc3545; color:white; font-size: 12px;" data-toggle="collapse"
+                  data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                </button>
+              </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+              {% if user.is_authenticated %}
+
+              {% for Complete_Website_Order_list in Complete_Website_Order_list %}
+              <a href="{% url 'complete_website_order_details' complete_website_order_id=Complete_Website_Order_list.id %}" class="order_list_anchor">
+                <div class="mt-2 mb-2 ml-1 mr-1 pt-2 pr-2 pl-2 text-justify orders_information"
+                  style="font-size: 13px;font-family: 'Roboto', sans-serif;">
+
+                  <!-- heading -->
+                  <h5 style="font-size:17px;">{{ Complete_Website_Order_list.Website_Functionality }}</h5>
+                  <hr>
+
+                  <!-- date time -->
+                  <span>{{ Complete_Website_Order_list.created_date }}</span><br>
+
+                  <!-- price -->
+                  <span class="badge badge-success pr-2 pl-2">{{ Complete_Website_Order_list.Price }} $</span>
+
+                  <!-- number of sections -->
+                  <label>Id: {{ Complete_Website_Order_list.pk }}</label>,
+                  <span>{{Complete_Website_Order_list.Number_Of_Section }} sections</span>
+                </div>
+              </a>
+
+              {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+    </div>
+  </div>
+
+</div>
+
+
+<script>
+  //frontend orders
+  frontend_orders = parseInt("{{ user.user_frontend_order.all.count }}")
+  document.querySelector(".frontend_orders").innerHTML = frontend_orders + " " + "frontend orders"
+
+  //backend orders
+  backend_orders = parseInt("{{ user.user_backend_order.all.count }}")
+  document.querySelector(".backend_orders").innerHTML = backend_orders + " " + "backend orders"
+
+  //complete website orders
+  complete_website_orders = parseInt("{{ user.user_complete_website_order.all.count }}")
+  document.querySelector(".complete_website_orders").innerHTML = complete_website_orders + " " + " complete website orders"
+
+
+  //total orders
+  total_users_order = frontend_orders + backend_orders + complete_website_orders
+  document.querySelector(".total").innerHTML = total_users_order
+
+</script>

@@ -1,0 +1,85 @@
+{% extends "20_order_details.html" %}
+{% block order_details_title %} Frontend Order Update {% endblock %}
+{% block order_details %}
+{% load static %}
+<style>
+    .number_button::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        opacity: 1;
+        /*-webkit-appearance:always show;*/
+
+    }
+
+    .frontend_edit_demo_file {
+        display: none;
+    }
+
+    .frontend_edit_demo_file_container {
+        box-shadow: rgb(67 71 85 / 27%) 0px 0px 0.25em, rgb(90 125 188 / 5%) 0px 0.25em 1em;
+
+    }
+
+    .frontend_edit_demo_file_container:hover {
+        color: #E21E51;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    }
+</style>
+
+<section>
+    <div class="container mt-5 mb-3">
+        <div class="row justify-content-center">
+
+            <!-- backend order information -->
+            <div class="col-md-6 col-10 order_info">
+                <div class=" p-3 mb-2">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="ms-2 c-details">
+
+                                <!-- order info header -->
+                                <h4 class="mb-0 order_info_header ">{{ frontend_order_edit.Service_Type }}</h4>
+                                <small class="league_spartan_font date_time">25 march 2022</small>
+                            </div>
+                        </div>
+                        <div class="badge">
+                            <span class="badge order_message p-2">
+                                wait
+                            </span>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- info section -->
+                    <div class="info_section">
+
+                        <img src="{% static '1_images/11_sorry.png' %}" style="width:50%" class="rounded d-block m-auto">
+
+                        <p style="color:red; font-size: medium;" class="roboto_font text-center"><b>Dear customer, I'm sorry.</b> You can't edit your order at the moment! Please contact me as soon as possible if you want to edit.</p>
+
+                        <form action="javascript:void(0)" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+
+                            <hr>
+                            <div class="edit_delete_icon_container">
+
+                                <!-- edit icon -->
+                                <a href="#" class="">
+                                    <button type="submit" style="cursor:wait" class="edit_btn btn disabled">SAVE</button>
+                                </a>
+
+
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+    </div>
+    </div>
+</section>
+{% endblock %}

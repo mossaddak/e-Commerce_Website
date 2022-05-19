@@ -1,0 +1,152 @@
+<div class="col-10 col-md-7 col-lg-3 card pb-5 mr-lg-3 border_none">
+    <h1 class="card-title text-center mt-5">
+        Package <label style="color:red" class="card-title">#03</label>
+    </h1>
+    <label class="">
+        <div class="text-center">
+            This is for <label style="color:red">Complete Website</label><br>
+            Start from-
+            <div class="price text-center third_card_price">$20</div>
+        </div>
+
+        <!--- rating section starts --->
+        <div class="height-100 container d-flex justify-content-center align-items-center">
+            <div class=" p-3">
+                <div class="d-flex justify-content-between align-items-center rating_container">
+                    <div class="small-ratings">
+                        {% if average_complete_website_rating < 1 %}
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+
+                            {% elif average_complete_website_rating < 2 %}
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+
+                            {% elif average_complete_website_rating < 3 %}
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+
+                            {% elif average_complete_website_rating < 4 %}
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+
+                            {% elif average_complete_website_rating < 5 %}
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star"></i>
+
+                            
+                            {% else %}
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star rating-color"></i>
+                            {% endif %}
+                        <a href="#" data-toggle="modal" data-target="#RatingCompleteWebsiteMODAL" data-placement="top" title="A user can rate for a time">({{ number_of_complete_website_rating }})</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--rating Modal starts -->
+        {% include "32_complete_website_ratings.html" %}
+        
+        <!--- rating modal ends -->
+
+
+
+
+        <!--- rating section endss --->
+        <manu>
+
+            <li class="ml-5">
+                Html5,CSS3,Bootstrap5 <img src="static/1_images/2_tick_icon1.png" alt="tick sign" style="width:8%">
+            </li>
+
+            <li class="ml-5">
+                Responsive Design <img src="static/1_images/2_tick_icon1.png" alt="tick sign" style="width:8%">
+            </li>
+            <li class="ml-5">
+                css3 Animation <img src="static/1_images/2_tick_icon1.png" alt="tick sign" style="width:8%">
+            </li>
+            <li class="ml-5">
+                Compatibility <img src="static/1_images/2_tick_icon1.png" alt="tick sign" style="width:8%">
+            </li>
+            <li class="ml-5">
+                JS Effect <img src="static/1_images/2_tick_icon1.png" alt="tick sign" style="width:8%">
+            </li>
+            <li class="ml-5">
+                Django,SQLite <img src="static/1_images/2_tick_icon1.png" alt="tick sign" style="width:8%">
+            </li>
+        </manu>
+    </label>
+
+
+    <form action="complete_website_orders/" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <!------- 3 number numField----- -->
+        <div class="number_button text-center">
+            number of <label style="color:red">sections-</label>
+            <input type="number" min="1" class="text-center numField13" active placeholder="01" onclick="numFIeld3()" name="complete_website_num_field" required>
+        </div>
+
+        <!--all radio btn-->
+        <p class="">
+
+            <!--portfolio-->
+            <li class="package_checkbox ml-5 mt-1">
+
+                <!--radio btn 7-->
+                <input type="radio" name="complete_website" value="Portfolio" class="radio_c3_btn_1" checked onclick="radioBtn7()" required>
+                Portfolio
+            </li>
+
+            <!--e-commerce-->
+            <li class="package_checkbox ml-5">
+
+                <!--radio btn 8-->
+                <input type="radio" name="complete_website" value="e-Commerce" class="radio_c3_btn_2" onclick="radioBtn8()" required> e-Commerce
+                Functionality
+            </li>
+
+            <!--social media-->
+            <li class="package_checkbox ml-5 mt-1">
+
+                <!--radio btn 9-->
+                <input type="radio" name="complete_website" value="Social Media" class="radio_c3_btn_3" onclick="radioBtn9()" required> Social
+                Media
+                Functionality
+            </li>
+
+            <li class="package_checkbox ml-5 mt-1">
+
+                <!-- image fie -->
+                <label style="color: red;">Upload DEMO file:</label>
+                <input type="file" class="" name="complete_website_file" required>
+            </li>
+        </p>
+        <!--checkbox end-->
+
+        <!--get started button-->
+        <button type="submit" class="get_start_button pr-5 pl-5 d-block m-auto btn" onclick="getstarted()">GET
+            STARTED</button>
+    </form>
+</div>

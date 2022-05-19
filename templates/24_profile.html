@@ -1,0 +1,199 @@
+{% load static %}
+<style>
+    .team_item {
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        transition: 0.9s;
+    }
+
+    .team_item:hover img {
+        transform: rotate(360deg);
+        transition: 1s;
+    }
+
+    .edit_heading span {
+        border-width: 0px 0px 3px 0px;
+        border-color: red;
+        border-style: solid;
+    }
+
+    .profile_file {
+        display: none;
+    }
+
+    .profile_file_container {
+        box-shadow: rgb(67 71 85 / 27%) 0px 0px 0.25em, rgb(90 125 188 / 5%) 0px 0.25em 1em;
+
+    }
+
+    .profile_file_container:hover {
+        color: #E21E51;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    }
+
+    .edit_btn,
+    .delete_btn {
+        background-color: #E1306C;
+        color: white;
+        transition: 0.9s;
+        font-size: 13px;
+    }
+
+    .edit_btn:hover,
+    .delete_btn:hover {
+        background-color: white;
+        color: #E1306C;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    }
+
+    .profile_picture {
+        display: none;
+    }
+
+    .profile_picture_container:hover .profile_picture {
+        display: block;
+    }
+
+    .profile_picture_upload {
+        display: none;
+    }
+
+    .profile_picture_upload_container,
+    .profile_picture_submit_btn {
+        font-size: 11px;
+        position: absolute;
+        color: #E1306C;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    }
+
+    .profile_picture_submit_btn {
+        margin-left: 40px;
+    }
+</style>
+
+<div class="modal fade" id="ProfilEmODAL" tabindex="-1" role="dialog" aria-labelledby="ProfilEmODAL" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ProfilEmODAL">Profile</h5>
+
+                <!-- close btn -->
+                <button type="button" class="btn close_btn_color rounded-circle" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <!---- profile form starts ---->
+                <section class="container" id="developer">
+
+
+                    <div class="row text-center d-flex justify-content-center ">
+
+                        <!-- Profile item -->
+                        <div class="col-xl-10 mb-2 team_item mt-2">
+                            <div class="bg-white rounded py-5 px-4">
+
+                                <form action="change_profile_picture/" method="POST" class=""enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <!--src="static/1_images/3_about.jpg"-->
+                                    <!--<img src="{{ media_url }} {{ request.user.3_profile_picture }}" alt="" width="100"
+                                        class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">-->
+
+                                        {% if profile %}
+                                        
+                                        {% for Profile_picture in profile %}
+                                        {% if Profile_picture.USer.username == user.username %}
+                                        <img src="{{ Profile_picture.Profile_picture.url}}" alt="profile picture" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm" style="width: 100px; height: 100px;">
+    
+                                        <a href="{% url 'pp_update' Profile_picture.pk %}">
+                                            <label class="profile_picture_upload_container btn">
+                                                <i class="fas fa-image"></i>
+                                            </label>
+                                        </a>
+                                        {% endif %}
+                                        {% endfor %}
+    
+
+                                        {% else %}
+                                        <img src="{% static '1_images/9_defult_profile_avate.jpg' %}" alt=""class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"style="width: 100px; height: 100px;">
+    
+                                        <!--{{ media_url }} {{ request.user.3_profile_picture }}-->
+                                        <!--- profile poicture upload system --->
+                                        <label class="profile_picture_upload_container btn">
+                                            <i class="fas fa-image"></i>
+                                            <input type="file" required name="profile_picture" class="profile_picture_upload">
+                                        </label>
+                                        <button class="btn profile_picture_submit_btn" type="submit"><i class="fas fa-upload"></i></button>
+                                        {% endif %}
+    
+
+                                </form>
+ 
+
+                                <h5 class="mb-0">{{ user.first_name }} {{ user.last_name }}</h5><span class="small text-uppercase text-muted">{{ request.user.username }}</span>
+                                <ul class="social mb-0 list-inline mt-3">
+                                    <li class="list-inline-item btn"
+                                        style="background-color:#E1306C; color:white;font-size: 12px;">{{ total_user_orders }} Orders</li>
+                                    <li class="list-inline-item btn disabled"
+                                        style="background-color:#E1306C; color:white;font-size: 12px;">None</li>
+                                    <li class="list-inline-item btn"
+                                        style="background-color:#E1306C; color:white;font-size: 12px;">{{ user.hireME.count }} Hire Request
+                                    </li>
+                                </ul>
+                                <hr>
+
+                                <div class="mail_email_container mt-3" style="font-size: small;">
+                                    <div class="text-left pt_sans_narrow_font">Username : {{ user.username }}</div>
+                                    <div class="text-left pt_sans_narrow_font">Email : {{ user.email }}</div>
+                                </div>
+                                <div class="edit_delete_icon_container text-left mt-2" style="font-size: small;">
+
+
+                                    <!-- edit icon -->
+                                    {% if request.user.is_authenticated %}
+                                    <a href="{% url 'profile_info_update' user.pk %}" class="edit_btn btn">
+                                        <i class="far fa-edit"></i>
+                                    </a>
+                                    
+
+                                    <!-- delete icon -->
+                                    <a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title="Customer You Can't delete your account at the moment" style="cursor:wait" class="delete_btn btn disabled">
+                                        <i class="far fa-trash-alt"></i>
+                                    </a>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+
+                        </div> 
+                        <!-- End -->
+
+
+                    </div>
+                </section>
+
+
+                <!---- profile form ends ---->
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    var profile_picture_file = document.querySelector(".profile_picture_upload_container");
+    var profile_picture_submit_btn = document.querySelector(".profile_picture_submit_btn");
+
+    profile_picture_submit_btn.addEventListener("click", add_profile);
+    function add_profile() {
+        profile_picture_submit_btn.style.color = "black"
+    }
+
+    profile_picture_file.addEventListener("click", profile_file);
+    function profile_file() {
+        profile_picture_file.style.color = "black"
+    }
+</script>

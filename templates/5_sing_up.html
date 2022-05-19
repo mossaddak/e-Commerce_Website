@@ -1,0 +1,78 @@
+<div class="modal fade" id="SinginMODAL" tabindex="-1" role="dialog" aria-labelledby="SinginMODAL"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="SinginMODAL">Sing Up</h5>
+
+          <!-- close btn -->
+          <button type="button" class="btn close_btn_color rounded-circle" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+          <!--- form start --->
+          <form action='/singup' method="POST">
+            {% csrf_token %}
+
+
+            <!--user name-->
+            <div class="mb-3">
+              <label class="form-label" for="username">User Name</label>
+              <input class="form-control" style="text-transform:lowercase !important" id="username" type="text" placeholder="@username" required name="username" />
+            </div>
+
+            <!-- Name input -->
+
+            <div class="mb-3">
+              <label class="form-label" for="fname">Enter First Name</label>
+              <input class="form-control" id="fname" type="text" placeholder="Enter first name" required name="fname" />
+            </div>
+
+            <!-- Name input -->
+
+            <div class="mb-3">
+              <label class="form-label" for="lname">Enter First Name</label>
+              <input class="form-control" id="lname" type="text" placeholder="Enter last name" required name="lname" />
+            </div>
+
+            <!-- Email address input -->
+            <div class="mb-3">
+              <label class="form-label" for="email">Email</label>
+              <input class="form-control" style="text-transform:lowercase !important" id="email" type="email" placeholder="example@gmail.com" required
+                name="email" />
+            </div>
+
+            <!-- Password input -->
+            <div class="mb-3">
+              <label class="form-label" for="pass1">Choose Password</label>
+              <input class="form-control" id="pass1" type="password" placeholder="choose password" required
+                name="pass1" />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="pass2">Confirm Password</label>
+              <input class="form-control" id="pass2" type="password" placeholder="confirm password" required
+                name="pass2" />
+            </div>
+            <style>
+              .submit_btn_sing_up_in i{
+                transition: 0.9s;
+              }
+              .submit_btn_sing_up_in:hover i{
+                transform: rotate(180deg); 
+              }
+            </style>
+            
+            <p style="color:red" class="singUp_pass_status"></p>
+            <button type="submit" class="btn singUpBtn col-12 submit_btn_sing_up_in sing_up_js1"
+              id="message">CREATE&ensp;<i class="fas fa-sign-out-alt"></i></button>
+          </form>
+          <!----- sing up form ends ----->
+
+        </div>
+
+      </div>
+    </div>
+  </div>

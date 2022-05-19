@@ -1,0 +1,47 @@
+<div class="modal fade" id="ALLuSERSmODAL" tabindex="-1" role="dialog" aria-labelledby="ALLuSERSmODAL"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ALLuSERSmODAL">All Users</h5>
+
+                <!-- close btn -->
+                <button type="button" class="btn close_btn_color rounded-circle" data-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                {% for ALLusers in ALLusers %}
+
+
+                <a href="#" class="order_list_anchor">
+                    <div class="mt-2 mb-2 ml-1 mr-1 pt-2 pr-2 pl-2 text-justify orders_information"
+                        style="font-size: 13px;font-family: 'Roboto', sans-serif;">
+
+                        <!-- user name -->
+                        <h5 style="font-size:17px;">@{{ ALLusers.username }}</h5>
+
+                        <!-- join date -->
+                        <label>Member from {{ALLusers.date_joined|date:'d'}} {{ALLusers.date_joined|date:'M'}}
+                            {{ALLusers.date_joined|date:'Y'}}</label>
+                        <hr>
+
+                        <!-- name -->
+                        <label class="pb-1" style="font-size:15px;">
+                            {{ ALLusers.first_name }} {{ ALLusers.last_name}}
+                        </label>
+
+                    </div>
+                </a>
+                {% endfor %}
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>

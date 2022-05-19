@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- icon -->
+  <link rel="icon" type="image/icon type" href="{% static '1_images/10_short.png' %}">
+  
+  <title>{% block title %} {% endblock %}</title>
+
+  <!-- bootstrap 4 -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- external css -->
+  <link rel="stylesheet" href="{% static '2_Css/style.css' %}">
+
+
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+  <!-- Agency FB cdn -->
+  <link href="http://allfont.net/allfont.css?fonts=agency-fb-bold" rel="stylesheet" type="text/css" />
+
+  <!-- Titillium Web -- CDN -->
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+
+  <!-- google jaquery cdn -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  
+
+  <style rel="stylesheet" type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+    .importance_link a:hover {
+      color: #E21E51 !important;
+      text-decoration: underline !important;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300&family=PT+Sans+Narrow&family=Roboto:wght@100&family=Source+Sans+Pro:wght@300&display=swap');
+
+    .pt_sans_narrow_font {
+      font-family: 'PT Sans Narrow', sans-serif;
+    }
+
+    .source_sans_pro_font {
+      font-family: 'Source Sans Pro', sans-serif !important;
+    }
+
+    .league_spartan_font {
+      font-family: 'League Spartan', sans-serif !important;
+    }
+
+    .roboto_font {
+      font-family: 'Source Sans Pro', sans-serif !important;
+    }
+  </style>
+
+
+  <style>
+    /**@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');**/
+  </style>
+</head>
+
+<body>
+
+
+  <!-------------NAVIGATION menu start--------->
+
+  <!-- header -->
+  <section class="container">
+    {% include "2_header.html" %}
+  </section>
+
+
+  <!--android development Modal -->
+  {% include "3_android_development.html" %}
+
+  <!--shopping cart Modal -->
+  {% include "4_shopping_cart.html" %}
+
+  <!--Sing Up Modal -->
+  {% include "5_sing_up.html" %}
+
+  <!--login Modal starts -->
+  {% include "6_login.html" %}
+
+  <!--login Modal starts -->
+  {% include "6_login.html" %}
+
+  <!-- notification model -->
+  {% include "16_notifications.html" %}
+
+  <!-- profile model -->
+  {% include "24_profile.html" %}
+
+  {% include "30_all-users.html" %}
+
+  <!----- navigation manu ends ------>
+
+
+  <!--- full content --->
+  {% block body %}
+
+  {% endblock %}
+  <script>
+
+    //---------packages page first card starst
+
+
+    //first card starts_________________
+
+    //numberfields starts----
+    function numFIeld1() {
+
+      r1_c1 = document.querySelector(".radio_btn_1");
+      r2_c1 = document.querySelector(".radio_btn_2");
+      r3_c1 = document.querySelector(".radio_btn_3");
+
+      if (r1_c1.checked) {
+        numField11 = document.querySelector(".numField11").value;
+        document.querySelector(".first_card_price").innerHTML = "$" + numField11 * 10;
+      }
+
+      else if ((r2_c1.checked) || (r3_c1.checked)) {
+        numField11 = document.querySelector(".numField11").value;
+        if (numField11 < 5) {
+          document.querySelector(".first_card_price").innerHTML = "$" + numField11 * 15;
+        }
+        else if (numField11 == 5) {
+          document.querySelector(".first_card_price").innerHTML = numField11 * 15 - 5 + "$";
+        }
+        else if (numField11 == 6) {
+          document.querySelector(".first_card_price").innerHTML = "$" + numField11 * 15;
+        }
+        else if (numField11 == 7) {
+          document.querySelector(".first_card_price").innerHTML = numField11 * 15 - 5 + "$";
+        }
+        else if (numField11 > 7) {
+          document.querySelector(".first_card_price").innerHTML = "$" + numField11 * 15;
+        }
+
+      }
+    }
+
+    //radio button functions start------------
+
+    //first card
+    function radioBtn1() {
+      r1_c1 = document.querySelector(".radio_btn_1");
+
+      if (r1_c1.checked) {
+        numField11 = document.querySelector(".numField11").value;
+        document.querySelector(".first_card_price").innerHTML = "$" + numField11 * 10;
+      }
+    }
+
+    function radioBtn2() {
+      r1_c1 = document.querySelector(".radio_btn_2");
+      numField11 = document.querySelector(".numField11").value;
+
+      if ((r2_c1.checked) && (numField11 < 5)) {
+        document.querySelector(".first_card_price").innerHTML = "$" + numField11 * 15;
+      }
+
+      else if ((r2_c1.checked) && (numField11 == 5)) {
+        document.querySelector(".first_card_price").innerHTML = numField11 * 15 - 5 + "$";
+      }
+
+      else if ((r2_c1.checked) && (numField11 == 6)) {
+        document.querySelector(".first_card_price").innerHTML = "$" + numField11 * 15;
+      }
+      else if ((numField11 == 7) && (r2_c1.checked)) {
+        document.querySelector(".first_card_price").innerHTML = numField11 * 15 - 5 + "$";
+      }
+      else if ((r2_c1.checked) && (numField11 > 7)) {
+        document.querySelector(".first_card_price").innerHTML = "$" + numField11 * 15;
+      }
+    }
+
+    function radioBtn3() {
+      r1_c1 = document.querySelector(".radio_btn_3");
+      numField11 = document.querySelector(".numField11").value;
+
+      if ((r3_c1.checked) && (numField11 < 5)) {
+        document.querySelector(".first_card_price").innerHTML = "$" + numField11 * 15;
+      }
+
+      else if ((r3_c1.checked) && (numField11 == 5)) {
+        document.querySelector(".first_card_price").innerHTML = numField11 * 15 - 5 + "$";
+      }
+
+      else if ((r3_c1.checked) && (numField11 == 6)) {
+        document.querySelector(".first_card_price").innerHTML = "$" + numField11 * 15;
+      }
+      else if ((numField11 == 7) && (r2_c1.checked)) {
+        document.querySelector(".first_card_price").innerHTML = numField11 * 15 - 5 + "$";
+      }
+      else if ((r3_c1.checked) && (numField11 > 7)) {
+        document.querySelector(".first_card_price").innerHTML = "$" + numField11 * 15;
+      }
+    }
+
+    //first cards end-------------
+
+
+    //second card starts________________________
+
+    //number field function
+    function numFIeld2() {
+
+      r1_c2 = document.querySelector(".radio_c2_btn_1");
+      r2_c2 = document.querySelector(".radio_c2_btn_2");
+      r3_c2 = document.querySelector(".radio_c2_btn_3");
+
+      if (r1_c2.checked) {
+        numField11 = document.querySelector(".numField12").value;
+        document.querySelector(".second_card_price").innerHTML = "$" + numField11 * 10;
+      }
+
+      else if ((r2_c2.checked) || (r3_c2.checked)) {
+        numField12 = document.querySelector(".numField12").value;
+        document.querySelector(".second_card_price").innerHTML = "$" + numField12 * 20;
+      }
+    }
+
+
+    //radio btn function
+
+    //radio btn 4
+    function radioBtn4() {
+      r1_c2 = document.querySelector(".radio_c2_btn_1");
+
+      if (r1_c2.checked) {
+        numField12 = document.querySelector(".numField12").value;
+        document.querySelector(".second_card_price").innerHTML = "$" + numField12 * 10;
+      }
+    }
+
+    //radio btn 5
+    function radioBtn5() {
+      r2_c2 = document.querySelector(".radio_c2_btn_2");
+
+      if (r2_c2.checked) {
+        numField12 = document.querySelector(".numField12").value;
+        document.querySelector(".second_card_price").innerHTML = "$" + numField12 * 20;
+      }
+    }
+
+    //radio btn 6
+    function radioBtn6() {
+      r3_c2 = document.querySelector(".radio_c2_btn_3");
+
+      if (r3_c2.checked) {
+        numField12 = document.querySelector(".numField12").value;
+        document.querySelector(".second_card_price").innerHTML = "$" + numField12 * 20;
+      }
+    }
+    //------packages page second card end-------
+
+
+    //third card starts____________
+
+    //number field function
+    function numFIeld3() {
+
+      r1_c3 = document.querySelector(".radio_c3_btn_1");
+      r2_c3 = document.querySelector(".radio_c3_btn_2");
+      r3_c3 = document.querySelector(".radio_c3_btn_3");
+
+      if (r1_c3.checked) {
+        numField13 = document.querySelector(".numField13").value;
+        document.querySelector(".third_card_price").innerHTML = "$" + numField13 * 20;
+      }
+
+      else if ((r2_c3.checked) || (r3_c3.checked)) {
+        numField13 = document.querySelector(".numField13").value;
+        document.querySelector(".third_card_price").innerHTML = "$" + numField13 * 30;
+      }
+    }
+
+
+    //radio btn function______
+
+    //radio btn 7
+    function radioBtn7() {
+      r1_c3 = document.querySelector(".radio_c3_btn_1");
+
+      if (r1_c3.checked) {
+        numField13 = document.querySelector(".numField13").value;
+        document.querySelector(".third_card_price").innerHTML = "$" + numField13 * 20;
+      }
+    }
+
+    //radio btn 8
+
+    function radioBtn8() {
+      r2_c3 = document.querySelector(".radio_c3_btn_2");
+
+      if (r2_c3.checked) {
+        numField13 = document.querySelector(".numField13").value;
+        document.querySelector(".third_card_price").innerHTML = "$" + numField13 * 30;
+      }
+    }
+
+
+    //radio btn 9
+    function radioBtn9() {
+      r3_c3 = document.querySelector(".radio_c3_btn_3");
+
+      if (r3_c3.checked) {
+        numField13 = document.querySelector(".numField13").value;
+        document.querySelector(".third_card_price").innerHTML = "$" + numField13 * 30;
+      }
+    }
+
+    //------------- package card end
+
+    //getting time for footer
+    var d = new Date();
+    document.querySelector(".time").innerHTML = d.getFullYear();
+
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!--- external js --->
+  <script src="{% static '4_Js/portfolio.js' %}"></script>
+</body>
+
+</html>

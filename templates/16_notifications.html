@@ -1,0 +1,88 @@
+<style>
+  .notification_msg {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+  a{
+    color: black;
+  }
+  a:hover{
+    color: black;
+  }
+  a:hover div{
+    background-color: rgb(248, 248, 248);
+    transition: 0.5s;
+  }
+</style>
+<div class="modal fade" id="NotificationsMODAL" tabindex="-1" role="dialog" aria-labelledby="NotificationsMODAL"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="NotificationsMODAL">All Notifications</h5>
+
+        <!-- close btn -->
+        <button type="button" class="btn close_btn_color rounded-circle" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <!----- frontend orers ------->
+
+        {% for frontend_order_list in frontend_order_list %}
+
+        {% if frontend_order_list.order_message %}
+        <a href="{% url 'frontend_order_details' frontend_order_id=frontend_order_list.id %}">
+          <div class="notification_msg p-3">
+            <b>{{ request.user.first_name }} </b>Your {{ frontend_order_list.Website_Functionality }} website's order is
+            <strong>{{ frontend_order_list.order_message }}</strong>
+          </div>
+        </a>
+
+        <hr>
+        {% endif %}
+
+        {% endfor %}
+
+
+        <!------ backend orders ------>
+        {% for backend_order_list in backend_order_list %}
+
+        {% if backend_order_list.order_message %}
+        <a href="{% url 'backend_order_details' backend_order_id=backend_order_list.id %}">
+          <div class="notification_msg p-3">
+            <b>{{ request.user.first_name }} </b>Your {{ backend_order_list.Website_Functionality }} website's order is
+            <strong>{{ backend_order_list.order_message }}</strong>
+          </div>
+        </a>
+
+        <hr>
+        {% endif %}
+
+        {% endfor %}
+
+
+        <!------ complete website orders ------>
+        
+        {% for Complete_Website_Order_list in Complete_Website_Order_list %}
+        {% if Complete_Website_Order_list.order_message %}
+        <a href="{% url 'complete_website_order_details' complete_website_order_id=Complete_Website_Order_list.id %}">
+          <div class="notification_msg p-3">
+            <b>{{ request.user.first_name }} </b>Your {{ Complete_Website_Order_list.Website_Functionality }} website's order is
+            <strong>{{ Complete_Website_Order_list.order_message }}</strong>
+          </div>
+        </a>
+
+        <hr>
+        
+        {% endif %}
+        {% endfor %}
+        
+
+
+
+      </div>
+
+    </div>
+  </div>
+</div>

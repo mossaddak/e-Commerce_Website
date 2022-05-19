@@ -1,0 +1,53 @@
+<div class="modal fade" id="SingUPmODAL" tabindex="-1" role="dialog" aria-labelledby="SingUPmODAL" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="SingUPmODAL">Login</h5>
+
+          <!-- close btn -->
+          <button type="button" class="btn close_btn_color rounded-circle" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+
+          <!---- login form starts ---->
+
+          <form id="LoginForm" method="POST" action='/login'>
+            {% csrf_token %}
+
+            <!-- user name -->
+            <div class="mb-3">
+              <label class="form-label" for="loginUserName">User Name</label>
+              <input class="form-control" style="text-transform:lowercase !important" id="loginUserName" type="text" placeholder="@username" required
+                name="loginUserName" />
+            </div>
+
+            <!-- Password input -->
+            <div class="mb-3">
+              <label class="form-label" for="Loginpass">Give Password</label>
+              <input class="form-control" id="Loginpass" type="password" placeholder="give password" required
+                name="Loginpass" />
+            </div>
+
+
+            <style>
+              .submit_btn_sing_up_in i{
+                transition: 0.9s;
+              }
+              .submit_btn_sing_up_in:hover i{
+                transform: rotate(180deg); 
+              }
+            </style>
+            <button type="submit" class="btn col-12 submit_btn_sing_up_in">LOGIN&ensp;<i class="fas fa-sign-out-alt"></i></button>
+          </form>
+
+          <!---- login form ends ---->
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>

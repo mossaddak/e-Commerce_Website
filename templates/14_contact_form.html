@@ -1,0 +1,32 @@
+<section class="contact_page" id="contact">
+    <div class="underline mt-5">
+        <div>
+            <h2 class="about_page" style="font-family:Agency FB">Contact</h2>
+        </div>
+    </div>
+    <div class="container mt-lg-4 pb-5">
+        <div class="row justify-content-center">
+
+            <div class="col-lg-5 col-10">
+                <form action="/contact" class="pt-lg-3 pt-2" method="POST">
+                    {% csrf_token %}
+
+                    <input type="text" placeholder="enter your name" required class="btn text-left col-12 col-lg-0 mt-3"
+                        name="name">
+
+                    <input type="email" placeholder="enter your mail" required
+                        class="btn text-left col-12 col-lg-0  mt-3 mt-lg-3" name="email">
+
+                    <textarea placeholder="write your meassage" required class="btn mt-3 text-left col-lg-12"
+                        name="text"></textarea>
+
+                    <button type="submit" class="btn mt-3 submit_button">submit</button>
+                </form>
+            </div>
+
+            <div class="col-lg-5">
+                <img class="ml-5 pl-5 mt-3 mt-lg-3 " src="static/1_images/4_contact_image.png">
+            </div>
+        </div>
+    </div>
+</section>

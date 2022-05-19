@@ -1,0 +1,123 @@
+<style>
+        @media screen and (max-width: 1198px){
+        .eye{
+            width: 15vh;
+            height: 25vh;
+        }
+
+        .eyes1{
+            top: 8vh;
+        }
+
+
+        
+    }
+
+    @media screen and (min-width: 1920px){
+        .eye{
+            width: 15vh;
+            height: 25vh;
+        }
+
+        .eyes1{
+            top: 6vh;
+        }
+
+        
+        
+    }
+
+</style>
+
+<section class="home_page container" id="HOME">
+
+    <div class="row">
+
+        <!---- left card starts ---->
+        <div class="col-lg-6 mr-auto left_card pt-lg-4">
+            <h3 class="main_heading card-title text-center text-lg-left lext-md-center">Build Your Business or Personal
+                website</h3>
+            <p class=" p-3 p-lg-0 home_page_left_information text-center text-lg-left lext-md-center"
+                style="font-family: 'Montserrat', sans-serif;">
+                Are you need any kind of website like a <b>blog, portfolio, business</b>? if <span
+                    style='color:red'>`YES`</span>, You've already come right place. Build your responsive,browser
+                compatibility & SEO friendly website by <b>HTML,CSS,bootstrap,javascript,Django with SQLite</b>.Don't
+                worry about the skill. Since the beginning of the 2021 I working with this.
+            </p>
+
+            
+
+        
+
+
+
+            <!--Hire me Modal starts -->
+
+            {% if user.is_authenticated %}
+            {% include "25_hire-me.html" %}
+
+
+            {% else %}
+            <div class="modal fade" id="hireMeMODAL" tabindex="-1" role="dialog" aria-labelledby="hireMeMODAL"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="hireMeMODAL">ERROR!</h5>
+                            <button type="button" class="btn close_btn_color" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <p class="montserrat" style="font-size: small;">Please <b>LOGIN</b> or <b>CREATE
+                                    &nbsp;AN&nbsp; ACCOUNT</b> else you cannot be able to enjoy this feature!</p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+
+            <!--- hire me button --->
+            <a href="#packages" class="dropdown-item text_style menu_hover text-center " data-toggle="modal"
+                data-target="#hireMeMODAL">
+                <button id="#packages" class="pl-5 pr-5 pt-2 pb-2 about_button montserrat hire_btn " data-toggle="tooltip" data-placement="top" title="Before enjoying this service please log into your account">
+                    HIRE ME
+                </button>
+            </a>
+
+            
+
+            <!--- hire me modal ends -->
+        </div>
+
+        <!---- left card ends ---->
+
+
+        <div class="col-lg-6 eyes1 right_card">
+
+            <div class="ml-lg-5 eyes">
+
+                <div class="eye">
+                    <div class="ball"></div>
+                </div>
+
+                <div class="eye">
+                    <div class="ball"></div>
+                </div>
+
+                <div class="shape">
+                    <img src="static/3_Cartoon/mask.png">
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    </div>
+</section>

@@ -1,0 +1,147 @@
+<!--------2nd card starts----------->
+<div class="second_card col-10 col-md-7 col-lg-3 card pb-5 bg-light mr-lg-3 mt-2 mt-md-2 mt-lg-0">
+    <h1 class="card-title text-center mt-5">
+        Package <label style="color:red" class="card-title">#02</label>
+    </h1>
+
+    <label class="">
+        <div class="text-center">
+            This is for complete <label style="color:red">Backend</label>
+    </label><br>
+    Start from-
+    <div class="price text-center second_card_price">$10</div>
+</div>
+
+
+<!--- rating section starts --->
+<div class="height-100 container d-flex justify-content-center align-items-center">
+    <div class=" p-3">
+        <div class="d-flex justify-content-between align-items-center rating_container">
+            <div class="small-ratings">
+                {% if average_backend_rating < 1 %}
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+
+                            {% elif average_backend_rating < 2 %}
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+
+                            {% elif average_backend_rating < 3 %}
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star "></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+
+                            {% elif average_backend_rating < 4 %}
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+
+                            {% elif average_backend_rating < 5 %}
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star"></i>
+
+                            
+                            {% else %}
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star rating-color"></i>
+                            <i class="fa fa-star rating-color"></i>
+                            {% endif %}
+                <a href="#" data-toggle="modal" data-target="#RatingBackendServicesWebsiteMODAL" data-placement="top" title="A user can rate for a time">({{ number_of_backend_rating }})</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--- rating section endss --->
+
+
+
+<!--rating Modal starts -->
+{% include "31_backend_ratings.html" %}
+
+<!--- rating modal ends -->
+
+
+<manu>
+    <li class="ml-5">
+        <strong>Language:</strong> Python <img src="static/1_images/2_tick_icon1.png" alt="tick sign" style="width:8%">
+    </li>
+    <li class="ml-5">
+        <strong>Frame Work:</strong> Django <img src="static/1_images/2_tick_icon1.png" alt="tick sign"
+            style="width:8%">
+    </li>
+    <li class="ml-5">
+        <strong>Database:</strong> SQLite,MySql <img src="static/1_images/2_tick_icon1.png" alt="tick sign" style="width:8%">
+    </li>
+    <li class="ml-5">
+        Dynamic/Static website <img src="static/1_images/2_tick_icon1.png" alt="tick sign" style="width:8%">
+    </li>
+</manu>
+</label>
+
+
+<!---- 2nd card form ---->
+<form action="backend_orders/" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <!--------- 2 number numfield --------->
+    <div class="number_button text-center">
+        number of <label style="color:red">sections-</label>
+
+        <!--number field-->
+        <input type="number" min="1" class="text-center numField12" onclick="numFIeld2()" name="backend_num_field" active placeholder="01" required>
+    </div>
+
+
+    <!----- backend functionality ----->
+    <p class="">
+        <!--radio btn 4-->
+        <li class="package_checkbox ml-5 mt-1">
+            <input type="radio" name="backend_functionaliy" class="radio_c2_btn_1" value="Portfolio" checked onclick="radioBtn4()" required>
+            Portfolio
+        </li>
+
+        <!--radio btn 5-->
+        <li class="package_checkbox ml-5">
+            <input type="radio" name="backend_functionaliy" class="radio_c2_btn_2" value="e-Commerce" onclick="radioBtn5()" required> e-Commerce
+            Functionality
+        </li>
+
+        
+        <!--radio btn 6-->
+        <li class="package_checkbox ml-5 mt-1">
+            <input type="radio" name="backend_functionaliy" class="radio_c2_btn_3" value="Social Media" onclick="radioBtn6()" required> Social
+            Media
+            Functionality
+        </li>
+
+        <!-- uploading fie -->
+        <li class="package_checkbox ml-5 mt-1">
+            <label style="color: red;">Upload DEMO file:</label>
+            <input type="file" class="" name="backend_file" required>
+        </li>
+    </p>
+    <!--checkbox end-->
+
+    <!--get started button-->
+    <button type="submit" class="get_start_button get_started_btn_for_scnd_card pr-5 pl-5 d-block m-auto btn">GET
+        START</button>
+</form>
+<!---- 2nd card form ends ---->
+
+
+</div>

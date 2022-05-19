@@ -1,0 +1,169 @@
+{% load static %}
+<header class="fixed-top">
+  <nav class="navbar navbar-expand-md">
+    <!--- LOGO--->
+    <a class="logo navbar-brand " href="#">
+      <div class="underline_pro pl-lg-5 ">
+        <img src="{% static '1_images/1_logo.png' %}">
+        <sup>
+          <span class="badge badge-danger pt-1 pb-1 pl-2 pr-2" data-toggle="modal"data-target="#ALLuSERSmODAL" data-toggle="tooltip" data-placement="top" title="Check user info who are enjoying services">{{total_user}} users</span>
+        </sup>
+      </div>
+    </a>
+    <div class="button">
+      <button class="navbar-toggler manu pt-2" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon "><i class="fas fa-bars"></i></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav  manu_link  pr-lg-5 ml-auto">
+        <li class="nav-item active"><a href="/" class="nav-link text_style_home text-center ">HOME </a></li>
+
+
+        <li class="nav-item active"><a href="#demo" class="nav-link text_style_home text-center ">RECENT WORKS</a></li>
+
+        <!-- drop down manu starts --->
+        <li class="nav-item dropdown ">
+          <a class="nav-link text_style menu_hover text-center dropdown-toggle" href="#" id="navbarDropdown"
+            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            PACKAGE
+          </a>
+          <div class="dropdown-menu nav_dropdown_items" aria-labelledby="navbarDropdown">
+            <!--#packages-->
+            <a class="dropdown-item text_style menu_hover text-center text-lg-left" href="#packages">WEBSITE</a>
+            <a class="dropdown-item text_style menu_hover text-center text-lg-left" href="#packages" data-toggle="modal"
+              data-target="#AndroisMODAL">ANDROID APPS</a>
+          </div>
+        </li>
+        <!-- drop down manu ends --->
+
+        <!-- about dropdown starts -->
+        <li class="nav-item dropdown ">
+          <a class="nav-link text_style menu_hover text-center dropdown-toggle" href="#" id="navbarDropdown"
+            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            ABOUT
+          </a>
+          <div class="dropdown-menu nav_dropdown_items" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item text_style menu_hover text-center text-lg-left" href="#about11">DEVELOPER</a>
+            <a class="dropdown-item text_style menu_hover text-center text-lg-left" href="#service">SERVICES</a>
+            <a class="dropdown-item text_style menu_hover text-center text-lg-left" href="#review">CLIENT'S WORDS</a>
+            <a class="dropdown-item text_style menu_hover text-center text-lg-left" href="#demo">DEMO WEBSITE</a>
+          </div>
+        </li>
+        <!-- about dropdown ends -->
+
+
+        <!-- shopping cart badge starts -->
+        <li class="nav-item">
+
+        </li>
+        <!-- shopping cart badge ends -->
+        <li class="nav-item mr-md-5"><a class="nav-link text_style menu_hover text-center " href="#contact">CONTACT</a>
+        </li>
+
+
+
+      </ul>
+
+
+      <!---- login part starts --->
+      <ul class="ml-auto navbar-nav pr-md-5">
+
+        {% if user.is_authenticated %}
+
+        <!----- cart buttion ------>
+        <li class="nav-item sing_up cart_button">
+          <a href="#" class=" nav-link text_style contact_hover border text-center" style="border: none;" data-toggle="modal" data-target="#ShoppingMODAL">
+            <i class="fas fa-dolly"></i>
+            <sup>
+              {% if user.is_authenticated %}
+              <span class="total"></span>
+              {% endif %}
+            </sup>
+          </a>
+        </li>
+
+        <!-- <script>
+          //frontend orders
+          frontend_orders = parseInt("{{ user.user_frontend_order.all.count }}")
+
+          //total orders
+          total_users_order = frontend_orders
+          document.querySelector(".total").innerHTML = total_users_order
+        </script>-->
+
+        <!----- notifications button -------->
+        <li class="nav-item sing_up">
+          <a href="#" class=" nav-link text_style contact_hover border text-center" data-toggle="modal" data-target="#NotificationsMODAL">
+            <i class="fas fa-bell"></i>
+            <sup style="font-size: 13px;">
+              {% if user.is_authenticated %}
+              {% endif %}
+            </sup>
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="auth nav-link text_style border text-center dropdown-toggle" href="#" id="navbarDropdown"role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="border-radius: 0px 5px 5px 0px !important; background-color: red; color: white;">
+            {{request.user.first_name}}&ensp;
+
+
+            {% if profile %}
+
+            {% for Profile_picture in profile %}
+            {% if Profile_picture.USer.username == user.username %}
+            <img src="{{ Profile_picture.Profile_picture.url}}" class="img-fluid rounded-circle"style="width:18px; height: 18px;">
+            {% endif %}
+            {% endfor %}
+
+            {% else %}
+            <i class="fas fa-user"></i>
+            {% endif %}
+          </a>
+
+          <div class="mr-md-5 dropdown-menu nav_dropdown_items" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item text_style menu_hover text-center text-lg-left" data-toggle="modal"data-target="#ProfilEmODAL" href="#about11">PROFILE</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item text_style menu_hover text-center text-lg-left" href="/logout">SING OUT&ensp;<i class="fas fa-sign-out-alt"></i></a>
+          </div>
+        </li>
+
+
+        {% else %}
+
+
+        <!----- login and sing up starts ----->
+        <li class="nav-item sing_up"> <a href="#"class="nav-link text_style contact_hover contact_border border text-center" data-toggle="modal"data-target="#SinginMODAL" style="border-radius: 5px 0px 0px 5px;">SING UP</a> </li>
+
+
+        <li class="nav-item sing_in"> <a href="#" class="nav-link text_style contact_hover contact_border border text-center" data-toggle="modal"data-target="#SingUPmODAL">SING IN</a> </li>
+        <!----- login and sing up ends ----->
+
+
+        {% endif %}
+
+
+      </ul>
+      <!---- login part ends --->
+
+    </div>
+
+
+
+  </nav>
+
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} fade show " role="alert">
+    <strong class="montserrat" style="font-size: small;"> {{ message }}</strong>
+    <button type="button" class="close btn pb-1 pl-2 pr-2 pt-1 montserrat" style="border-radius: 40px;"
+      data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+  {% endif %}
+
+
+  <P style='color:red'>{{ messgae }}</P>
+</header>

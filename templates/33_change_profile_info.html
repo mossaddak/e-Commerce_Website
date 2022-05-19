@@ -1,0 +1,72 @@
+{% extends '20_order_details.html' %}
+{% load static %}
+<title>{% block order_details_title %} Update Information {% endblock %}</title>
+{% block order_details %}
+
+<style>
+    form input{
+        display: block;
+        border: 1px solid rgb(222, 222, 222);
+        padding: 4px 8px;
+        outline: none;
+        width: 100%;
+    }
+    form label{
+        padding: 4px;
+    }
+</style>
+
+<section>
+    <div class="container mt-5 mb-3">
+        <div class="row justify-content-center">
+
+            <!-- backend order information -->
+            <div class="col-md-6 col-10 order_info">
+                <div class=" p-3 mb-2">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="ms-2 c-details">
+
+                                <!-- order info header -->
+                                <h4 class="mb-0 order_info_header ">Join Date</h4>
+
+                                <!-- join date -->
+                                <small class="league_spartan_font date_time">
+                                    {{user.date_joined|date:'d'}} {{user.date_joined|date:'M'}} {{user.date_joined|date:'Y'}}
+                                </small>
+                            </div>
+                        </div>
+                        <div class="badge">
+                            <span class="badge order_message p-2">
+                                Update Info
+                            </span>
+                        </div>
+                    </div>
+                    <hr>
+                    
+
+                    <div class="">
+
+                        <!-- update form -->
+                        <form action="" enctype="multipart/form-data" method="POST" class="pt_sans_narrow_font">
+                            {% csrf_token %}
+                            {{ form }}
+
+                            <hr>
+                            <div class="edit_delete_icon_container">
+                                <!-- submit button -->
+                                <a href="#" class="">
+                                    <button type="submit" class="edit_btn btn">SAVE</button>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    </div>
+</section>
+{% endblock %}

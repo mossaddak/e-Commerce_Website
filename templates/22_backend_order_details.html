@@ -1,0 +1,63 @@
+{% extends '20_order_details.html' %}
+{% block order_details %}
+<section>
+    <div class="container mt-5 mb-3">
+        <div class="row justify-content-center">
+
+            <!-- backend order information -->
+            <div class="col-md-6 col-10 order_info">
+                <div class=" p-3 mb-2">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="ms-2 c-details">
+
+                                <!-- order info header -->
+                                <h4 class="mb-0 order_info_header ">{{ backend_order_details.Service_Type }}</h4> <small
+                                    class="league_spartan_font date_time">{{ backend_order_details.created_date}}</small>
+                            </div>
+                        </div>
+                        <div class="badge">
+                            <span class="badge order_message p-2">
+                                {% if backend_order_details.order_message %}
+                                {{ backend_order_details.order_message }}
+                                {% else %}
+                                Wait
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- info section -->
+                    <div class="info_section">
+                        <div class="roboto_font">Website Funtionality: <span class="badge"
+                                style="background-color: #E1306C; color: white;">{{ backend_order_details.Website_Functionality }}</span></div>
+                        <div class="roboto_font">Per Section Price: {{ backend_order_details.Per_section_Price }}</div>
+                        <div class="roboto_font">Total Sections: {{ backend_order_details.Number_Of_Section }}</div>
+                        <div class="roboto_font">Total Price: <span class="badge badge-success">{{ backend_order_details.Backend_Price }}</span></div>
+                        <div class="roboto_font">Order Id: {{ backend_order_details.pk }}</div>
+
+                        <hr>
+                        <div class="edit_delete_icon_container">
+
+                            <!-- edit icon -->
+                            <a href="{% url 'backend_order_edit' backend_order_id=backend_order_details.id %}" class="edit_btn btn">
+                                <i class="far fa-edit"></i>
+                            </a>
+
+                            <!-- delete icon -->
+                            <a href="{% url 'backend_order_delete' backend_order_id=backend_order_details.id %}" class="delete_btn btn">
+                                <i class="far fa-trash-alt"></i>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+    </div>
+</section>
+{% endblock %}

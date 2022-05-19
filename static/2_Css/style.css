@@ -1,0 +1,816 @@
+
+
+/*-------- navbar starts --------*/
+header{
+    background-color:white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius:0px 0px 15px 15px;
+}
+
+
+.montserrat{
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.text_style{
+    color:black;
+    font-size:12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:bolder;
+    transition:.40s;
+}
+.text_style_hover:hover{
+    color:red ;
+}
+.coloR{
+    color:red;
+}
+.manu_icon{
+    font-size:10px !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:bolder;
+    margin-right:15px;
+    margin-top:1px !important;
+    color:red;
+    transition:0.40s;
+}
+.button button{
+    border:2px solid red;
+    padding:1px 15px;
+    border-radius:40px;
+    transition:0.40s;
+    outline:none;
+}
+.button button:hover{
+    box-shadow:1px 1px 1px 1px red;
+}
+.text_style_home{
+    font-size:12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:bolder;
+    transition:.40s;
+    color:black;
+}
+.text_style_home:hover{
+    font-size:13px;
+    color:red;
+    transition:.40s;
+}
+.contact_hover{
+    color:red;
+}
+.contact_hover:hover{
+    color:red;
+    font-size:13px;
+}
+.menu_hover:hover{
+    color:red;
+    font-size:13px;
+}
+.manu_color{
+    color:black;
+}
+
+.nav_dropdown_items a{
+    color:#E21E51
+}
+
+.nav_dropdown_items a:hover{
+    background-color:#E21E51;
+    color:white;
+}
+.dropdown div{
+    border:none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.cart_button a{
+    border-radius:5px 0px 0px 5px !important;
+}
+
+.cart_button a sup{
+    font-size: 14px;
+    
+}
+
+.sing_up a{
+    transition:.9s;
+    /*background-color:#FF834F;;
+    color:white;
+    background-color:red;*/
+    
+}
+ .sing_in a{
+    border-radius:0px 5px 5px 0px;
+ }
+
+
+.auth_ a:hover{
+    color: white !important;
+    
+}
+.sing_in a:hover,.sing_up a:hover{
+    background-color:red !important;
+    color:white !important;
+}
+.modal-header{
+    border-radius:0px 0px 15px 15px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+.submit_btn_sing_up_in{
+    color:white;
+    transition:.9s;
+    background-color:#E21E51;
+}
+.submit_btn_sing_up_in:hover{
+    background-color:white;   
+    color:#E21E51;
+}
+.close_btn_color{
+    color:#E21E51;
+    transition:0.9s;
+}
+
+.close_btn_color:hover{
+    background-color:#f78c8c;
+    color:white;
+}
+.modal-title{
+    font-family: Agency FB;
+    font-weight: bolder;
+    color:#E21E51;
+}
+
+.mt-50 {
+    margin-top: 50px
+}
+
+.mb-50 {
+    margin-bottom: 50px
+}
+
+a {
+    text-decoration: none !important
+}
+
+.card-header:not([class*=bg-]):not([class*=alpha-]) {
+    background-color: transparent;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom-width: 0
+}
+
+.card-header .card-title {
+    margin-bottom: 0
+}
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .1875rem
+}
+
+.w-100 {
+    width: 100% !important
+}
+
+.mt-0-20 {
+    margin-top: .20rem !important
+}
+
+
+/*-----------navigation menu end-----------*/
+
+      
+/*--------------------------------------------------HOME page START--------------------------------------------------*/
+
+
+.header_font{
+    font-size:35px;
+    font-weight:bolder;
+    
+}
+
+.home_page{
+    box-sizing:border-box;
+    
+}
+.p_font{
+    font-family: 'Titillium Web', sans-serif;
+}
+.left_card h3{
+    font-size:35px;
+}
+
+@media screen and (max-width: 770px){
+    .left_card {
+         padding-top:1vh;
+    }
+    
+    
+}
+@media screen and (max-width: 763px){
+    .home_page {
+         padding-top:20vh !important;
+    }
+    
+ 
+}
+
+@media screen and (max-width: 566px){
+    .left_card h3{
+         font-size:27px;
+    }
+    .left_card p{
+        font-size:13px;
+    }
+
+}
+
+/*---------------------home right side-------------------*/
+.img_pic img{
+    width:90%;
+    border-radius:10px;
+    margin-top:10px;
+}
+
+@media screen and (max-width: 770px){
+    .img_pic img{
+        width:80%;
+        border-radius:10px;
+        margin-top:10px;
+    }
+}
+
+
+.img_pic:before{
+    position:absolute;
+    content:'';
+    right:-30px;
+    top:25px;
+    left:40px;
+
+
+    border-color:red;
+    border-style:solid;
+    /*border:3px solid red;*/
+    border-width:0px 3px 3px 0px;
+
+
+    width:85%;
+    height:100%;
+    border-radius:10px;
+}
+/*---------------Button-------------*/
+.about_button{
+    border-radius:40px;
+    background-color:red;
+    color:white;
+    font-weight:bolder;
+    outline:none;
+    border:none;
+    margin-bottom:10px;
+
+}
+.left_card button{
+    border-radius:40px;
+    outline:none;
+    transition:0.40s;
+}
+.left_card button:hover{
+    font-size:15px;
+    transition:0.40s;
+}
+.paragraph_font{
+    color:black;
+    font-size:15px;
+    font-family:Calibri;
+    transition:.40s;
+}
+.home_page_left_information{
+    font-size:15px;
+}
+
+.home_page{
+    padding-top:25vh;
+}
+@media screen and (max-width: 770px){
+    .home_page{
+        padding-top:10vh;
+    }
+}
+
+
+/*----- eye shape starts ----*/
+
+.eyes1{
+    top: 12vh;
+    transform: translateY(-50%);
+    text-align: center;
+    width: 100%;
+}
+
+@media screen and (max-width: 1326px){
+    .eyes1{
+        top:30vh;
+    }
+    
+}
+
+
+
+.eye{
+    width: 20vh;
+    height: 30vh;
+    border-radius: 50%;
+    background-color: #fff;
+    display: inline-block;
+    position: relative;
+    margin: 0 40px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.ball{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #000;
+    border: 15px solid #333;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 312px){
+    .eye{
+        width: 15vh;
+        height: 30vh;
+    }
+    
+}
+
+@media screen and (max-width: 411px){
+    .eye{
+        width: 10vh;
+        height: 15vh;
+    }
+
+
+    .eyes1{
+        top: 10vh;
+    }
+
+    
+}
+
+@media screen and (max-width: 238px){
+    .eye{
+        width: 5vh;
+        height: 10vh;
+    }
+    
+}
+
+@media screen and (max-width: 414px){
+    .eye{
+        width: 10vh;
+        height: 20vh;
+    }
+    
+}
+
+
+
+
+.shape img{
+    width: 45vh;
+}
+
+.eyes{
+    margin-top:35vh;
+}
+
+
+
+
+
+
+
+/*----- eye shape ends ----*/
+
+
+/*-----------home page END---------------*/
+
+
+/*---------------------Service page STARTs-------------------*/
+
+.services_page{
+    font-family:Agency FB;
+    padding-top:22vh;
+}
+@media screen and (max-width: 770px){
+    .services_page{
+        padding-top:10vh;
+    }
+}
+
+.services_page .card{
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    border:none;
+    transition:.5s;
+}
+.services_page .card:hover{
+    transform:translateY(-7px);
+}
+.services_page .card p{
+    font-family:Calibri;
+}
+
+.card svg{
+    transition:.5s;
+}
+.card svg:hover{
+    transform:rotate(180deg);
+}
+.services_page h2 div{
+    border:1px solid red;
+    width:10%;
+    text-align:center;
+}
+.service_icon{
+    width:18%;
+    background-color:#E21E51;
+    padding:10px;
+    border-radius:4px 0px 4px 0px;
+}
+/*---------service page END---------*/
+
+
+
+/*---------------------Clients review section START-------------------*/
+.client_rivew_page{
+    font-family:Agency FB;
+    font-weight: 600px;
+    padding-top:19vh;
+}
+
+@media screen and (max-width: 770px){
+    .client_rivew_page{
+        padding-top:6vh;
+    }
+}
+
+.arrow_icon {
+    font-size:30px;
+    padding:10px;
+}
+.client_name{
+    font-family:Agency FB;
+    font-weight:bolder;
+    font-size:13px;
+}
+.carousel-item .card{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border:none;
+}
+/*---------client page END---------*/
+
+
+
+
+
+/*----------------------------------PACKAGE section page START-----------------------------------*/
+
+.package_page .card{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border:none;
+}
+.front_end_package{
+    padding-top:19vh;
+}
+
+@media screen and (max-width: 770px){
+    .package_page{
+        padding-top:6vh;
+    }
+}
+
+
+
+
+@media screen and (max-width: 770px){
+    .full_website_package{
+        padding-top:1vh;
+    }
+}
+
+.package_page .card-title{
+    font-family:Agency FB;
+    font-size:20px;
+    font-weight:bolder;
+}
+.package_page label{
+    font-family:Calibri;
+    font-size:15px;
+}
+.price{
+    font-family:Agency FB;
+    font-size:30px;
+}
+.package_checkbox{
+    font-size:13px;
+    list-style-type: none;
+}
+.number_button input{
+    border-color:red;
+    border-style:solid;
+    border-width:0px 0px 1px 0px;
+    outline:none;
+    padding:2px 2px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    border-radius:10px;
+}
+
+.number_button input::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+    opacity: 1;  
+   /*-webkit-appearance:always show;*/
+
+}
+.get_start_button{
+    border:2px solid red;
+    outline:none;
+    font-family:Agency FB;
+    background-color:white;
+    font-weight:bolder;
+    border-radius:20px;
+}
+.get_start_button:hover{
+    font-weight:normal;
+}
+
+.get_started_btn_for_scnd_card{
+    background-color:red;
+    color:white;
+}
+
+.alert-dismissible{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    color:#E1306C;
+}
+.second_card{
+    border:2px solid red;
+}
+
+
+/*-- rating star starts --**/
+
+
+.rating-color {
+    color: #fbc634 !important
+}
+
+.small-ratings i {
+    color: #cecece
+}
+.small-ratings a{
+    color:black;
+}
+.small-ratings a:hover{
+    color:#E1306C;
+}
+
+
+/*-- rating star ends --*/
+
+
+/*---------package page END---------*/
+
+
+/*----------------------------------ABOUT page START-----------------------------------*/
+
+
+.about_page h4{
+    padding-top:3vh;
+    font-family: 'Lato', sans-serif;
+    font-weight: bolder;
+    font-size:22px;
+}
+.about_page h4 p{
+    font-family: 'Titillium Web', sans-serif;
+}
+b{
+    color:#E1306C;
+}
+
+@media screen and (max-width: 770px){
+    .about_page h4{
+        padding-top:-0vh;
+        font-size:17px;
+    }
+    .about_page p{
+        font-size:14px;
+    }
+}
+
+    /*--query starts--*/
+
+.collaps_card{
+    border:none;
+    /*box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;*/
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+     
+}
+
+.collaps_card div h6 a{
+    color: #E1306C;
+}
+
+.faq{
+    font-weight:bolder;
+    font-size:22px;
+}
+/*--query ends--*/
+
+
+/*---------about page END---------*/
+
+
+/*------------------------------recent work page starts----------------*/
+
+.recent_work_page{
+    font-family:Agency FB;
+}
+
+@media screen and (max-width: 770px){
+    .recent_work_page{
+        padding-bottom:-100px;
+    }
+}
+.client_arrow{
+    
+
+    font-size:30px;
+    border-color:10px solid #E1306C;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+
+} 
+.client_arrow_next{
+    border-radius:5% 50% 50% 5%;
+}
+.client_arrow_previous{
+    border-radius:50% 5% 5% 50%;
+}
+.recent_works{
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
+/*-------------recent work page ends------------*/
+
+
+/*---------------------------contact page start----------------------*/
+.contact_page img{
+    width:65%;
+}
+.contact_page input, textarea,button{
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+.submit_button{
+    color:white;
+    background-color:red;
+    font-family:Calibri;  
+}
+input{
+    cursor:copy;
+}
+/*------------------contact page ends-------------------*/
+
+
+/*---------------------------- underline starts------------------*/
+.underline{
+    display:flex;
+    justify-content: center; 
+    font-family:Agency FB;       
+}
+.underline div{
+    border-width:0px 0px 3px 0px;
+    border-color:red;
+    border-style: solid;
+}
+/*--------underline ends-------->
+
+
+/*--------------------------------footer starts-------------------------*/
+
+footer{
+    background-color:white;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    border-radius:15px 15px 0px 0px;
+}
+footer h6{
+    color:red;
+}
+footer i:hover{
+    color:#E21E51;
+}
+
+    /*--------social media links--------*/
+.wrapper .button{
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    
+    margin: 0 5px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    /*box-shadow: 0px 10px 10px rgba(0,0,0,0.1);*/
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    transition: all 0.3s ease-out;
+  }
+  .wrapper .button:hover{
+    width: 200px;
+  }
+  .wrapper .button .icon{
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    border-radius: 50px;
+    box-sizing: border-box;
+    line-height: 60px;
+    transition: all 0.3s ease-out;
+    color:#292625;
+  }
+  .wrapper .button a{
+      text-decoration:none;
+  }
+  .wrapper .button:nth-child(1):hover .icon{
+    background: #4267B2;
+  }
+  .wrapper .button:nth-child(2):hover .icon{
+    background: #1DA1F2;
+  }
+  .wrapper .button:nth-child(3):hover .icon{
+    background: #E1306C;
+  }
+  .wrapper .button:nth-child(4):hover .icon{
+    background: #333;
+  }
+  .wrapper .button:nth-child(5):hover .icon{
+    background: #ff0000;
+  }
+  .wrapper .button .icon i{
+    font-size: 20px;
+    line-height: 60px;
+    transition: all 0.3s ease-out;
+  }
+  .wrapper .button:hover .icon i{
+    color: #fff;
+  }
+  .wrapper .button span{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 60px;
+    margin-left: 10px;
+    transition: all 0.3s ease-out;
+  }
+  .wrapper .button:nth-child(1) span{
+    color: #4267B2;
+  }
+  .wrapper .button:nth-child(2) span{
+    color: #1DA1F2;
+  }
+  .wrapper .button:nth-child(3) span{
+    color: #E1306C;
+  }
+  .wrapper .button:nth-child(4) span{
+    color: #333;
+  }
+  .wrapper .button:nth-child(5) span{
+    color: #ff0000;
+  }
+        /*-------social media links ends-------*/
+
+
+
+/*-------- all orders page starts ---------*/
+
+/*------ all orders page ends ------*/
+
+
+
+
+
+  /*--------------------------footer end----------------------*/

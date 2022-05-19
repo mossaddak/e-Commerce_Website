@@ -1,0 +1,83 @@
+<div class="modal fade" id="hireMeMODAL" tabindex="-1" role="dialog" aria-labelledby="hireMeMODAL"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="hireMeMODAL">HIRE ME</h5>
+                            <button type="button" class="btn close_btn_color" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <style rel="stylesheet" type="text/css">
+                                .hireme_select_option_container {
+                                    border: none !important;
+                                    box-shadow: rgb(67 71 85 / 27%) 0px 0px 0.25em, rgb(90 125 188 / 5%) 0px 0.25em 1em;
+                                }
+
+                                .hireme_select_option_container option {
+                                    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+                                }
+
+                                .hireme_textarea {
+                                    border: none !important;
+                                    box-shadow: rgb(67 71 85 / 27%) 0px 0px 0.25em, rgb(90 125 188 / 5%) 0px 0.25em 1em;
+                                }
+
+                                .hireme_file {
+                                    display: none;
+                                }
+
+                                .hireme_file_container {
+                                    box-shadow: rgb(67 71 85 / 27%) 0px 0px 0.25em, rgb(90 125 188 / 5%) 0px 0.25em 1em;
+
+                                }
+
+                                .hireme_file_container:hover {
+                                    color: #E21E51;
+                                    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+                                }
+                            </style>
+
+                            <!---- hire me form starts ---->
+                            <form action="/hire_me" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <label for="inputState" class="montserrat" style="font-size: small;">Service
+                                    type</label>
+
+                                <select id="inputState" class="form-control hireme_select_option_container"
+                                    style="font-size: small;" name="service_type" required>
+                                    <option selected class="montserrat" style="font-size: small;">Frontend</option>
+                                    <option class="montserrat" style="font-size: small;">Backend</option>
+                                    <option class="montserrat" style="font-size: small;">Complete Website</option>
+                                    <option class="montserrat" style="font-size: small;">Ready Website Customization
+                                    </option>
+                                    <option class="montserrat" style="font-size: small;">Others</option>
+                                </select>
+
+                                <textarea style="font-size: small;" maxlength="250" name="project_Plan"
+                                    placeholder="Tell about your project or plan in 250 charecters...."
+                                    class="col-12 mt-2 hireme_textarea btn montserrat text-left" required
+                                    rows="5"></textarea>
+
+                                <label class="montserrat mt-3" style="font-size: small;">Upload your demo file if
+                                    any&nbsp;:&nbsp;
+
+                                </label>
+
+                                <label class="hireme_file_container mt-3 montserrat p-1" style="font-size: small;">
+                                    Choose a file
+                                    <input class="mt-2 hireme_file" name="frontend_file" type="file">
+                                </label>
+
+                                <button type="submit"
+                                    class="btn singUpBtn col-12 submit_btn_sing_up_in sing_up_js1 mt-2"
+                                    id="message">SEND REQUEST</button>
+                            </form>
+                            <!---- hire me form ends ---->
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>

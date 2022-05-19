@@ -1,0 +1,109 @@
+<section class="container">
+
+    <div class="container d-flex justify-content-center mt-50 mb-50">
+        <div class="w-100 overflow-auto order-2 order-md-1">
+            <div class="card-group-control card-group-control-right">
+                <div class="mb-2 faq p-3">FAQ</div>
+
+
+                {% for faq in allFAQ %}
+                <div class="d-flex justify-content-center">
+                    <div class="card collaps_card mb-2 w-100 col-11">
+
+                        <!-- question -->
+                        <div class="card-header">
+                            <h6 class="card-title">
+                                <a class="text-uppercase" data-toggle="collapse" href="#question{{faq.pk}}">
+                                    {{faq.pk}}. {{ faq.Question }}
+                                </a>
+                            </h6>
+                        </div>
+
+                        <div id="question{{faq.pk}}" class="collapse">
+
+                            <!-- answer -->
+                            <div class="card-body">
+                                {{ faq.Answer }}
+                            </div>
+
+                            <div
+                                class="card-footer bg-transparent d-sm-flex align-items-sm-center align-items-lg-right border-top-0 pt-0">
+                                <ul class="list-inline text-nowrap mb-0 ml-auto mt-2 mt-sm-0">
+
+                                    <style>
+                                        .like_btn{
+                                            color: #fa4c4c;
+                                            transition: 0.9s;
+                                        }
+                                        .like_btn:hover{
+                                            background-color: #fa4c4c;
+                                            color:white;
+                                        }
+                                    </style>
+                                    <!-- like button -->
+                                    <li class="list-inline-item">
+
+                                        {% if user in faq.likes.all %}
+                            
+                                        <!-- unlike button -->
+                                        <form action="{% url 'unlike' faq.pk %}" method="POST">
+                                            {% csrf_token %}
+                                            <button type="submit" name="faqUnLIKEid" value={{faq.id}} class="btn mr-2"
+                                                style="background-color:#fa4c4c;color: white;" data-abc="true"
+                                                data-placement="top"
+                                                title="Note:The feature is under construction so you can't enjoy this feature">
+                                                <i class="fa fa-thumbs-up"></i> {{ faq.likes.all.count }}
+                                            </button>
+                                        </form>
+
+                                        {% else %}
+                                        
+                                        <!-- like button -->
+                                        <form action="{% url 'like_post' faq.pk %}" method="POST">
+                                            {% csrf_token %}
+                                            <button type="submit" name="faqLIKEid" value={{faq.id}} class="like_btn btn mr-2" data-abc="true"
+                                                data-placement="top"
+                                                title="Note:The feature is under construction so you can't enjoy this feature">
+                                                <i class="fa fa-thumbs-up"></i> {{ faq.likes.all.count }}
+                                            </button>
+                                        </form>
+                                        {% endif %}
+
+                                        
+                                    </li>
+                                
+                                
+
+
+                                    <!-- unlike button -->
+                                    <!--
+                                    <li class="list-inline-item">
+                                        <form action="#" method="POST">
+                                            {% csrf_token %}
+                                            <button type="submit" style="color:#fa4c4c;" class="btn mr-2" data-abc="true" data-abc="true"
+                                                data-placement="top"
+                                                title="Note:The feature is under construction so you can't enjoy this feature">
+                                                <i class="fa fa-thumbs-down"></i> 114
+                                            </button>
+                                        </form>
+                                    </li>
+                                    -->
+
+                                    
+                                </ul>
+                            </div>
+
+                            <!------ like btn end ------>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+</section>
